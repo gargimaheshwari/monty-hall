@@ -1,2 +1,2 @@
-# monty-hall
-Monty Hall data analysis solution
+# Monty Hall
+Solution to the Monty Hall problem using data analysis.
