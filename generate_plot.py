@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 sample_space = range(1, 10000)
-value = []
+win_value = []
 doors = np.array([1, 0, 0])
 for i in sample_space:
     np.random.shuffle(doors) #shuffles in-place
@@ -13,10 +13,10 @@ for i in sample_space:
     else:
         open_door = np.where(doors[idx[0]] == 0, idx[0], idx[1])
     chosen_door = int(np.delete([0, 1, 2], (chosen_door, open_door)))
-    value.append(doors[chosen_door])
-frac_switching = np.cumsum(value)/sample_space
+    win_value.append(doors[chosen_door])
+frac_switching = np.cumsum(win_value)/sample_space
 
-value = []
+win_value = []
 for i in sample_space:
     np.random.shuffle(doors) #shuffles in-place
     chosen_door = np.random.choice([0, 1, 2])
@@ -25,8 +25,8 @@ for i in sample_space:
         open_door = np.random.choice(idx)
     else:
         open_door = np.where(doors[idx[0]] == 0, idx[0], idx[1])
-    value.append(doors[chosen_door])
-frac_staying = np.cumsum(value)/sample_space
+    win_value.append(doors[chosen_door])
+frac_staying = np.cumsum(win_value)/sample_space
 
 one_third = np.full(len(sample_space), 0.3333)
 two_thirds = np.full(len(sample_space), 0.6666)
